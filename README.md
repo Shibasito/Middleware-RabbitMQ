@@ -17,6 +17,15 @@ Es un **exchange directo** para las operaciones de verificación de identidad co
 
 Este exchange se enlaza a la cola **verify queue** usando la *routing key* **verify**
 
+#### Configuración de credenciales de usuario
+```
+RABBIT_HOST = "localhost"
+RABBIT_PORT = 5672
+RABBIT_USER = "admin"
+RABBIT_PASS = "admin"
+```
+
+
 ## Instrucciones de uso
 
 En Windows:
