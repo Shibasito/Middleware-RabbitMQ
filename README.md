@@ -66,4 +66,13 @@ python3 setup_rabbitmq.py start
 python3 setup_rabbitmq.py stop
 ```
 
+## Despliegue de RabbitMQ con CloudAMQP
+
+Para desplegar un servidor de **RabbitMQ** en la nube, puedes acceder a [CloudMQ](https://www.cloudamqp.com/), crearte una cuenta y crear una instancia de **RabbitMQ** fácilmente.
+
+Una vez creada tu instancia, puedes configurar el servidor ingresando al **RabbitMQ Manager** o mediante código usando la URL de conexión que aparece en el apartado **AMQP details**, la cual tiene tiene el formato ```amqps://user:password@fly.rmq.cloudamqp.com/user```
+
+Para realizar la misma configuración de **exchanges** y **colas** de este repositorio, puedes ejecutar el script ```CloudAMQP/setup_rabbitmq.py``` luego de activar el entorno virtual e instalar las dependencias como se indica el las *instrucciones de uso*.
+
+
 Más documentación sobre el funcionamiento y los tipos de exchange de RabbitMQ [aquí](https://www.cloudamqp.com/blog/part4-rabbitmq-for-beginners-exchanges-routing-keys-bindings.html)
