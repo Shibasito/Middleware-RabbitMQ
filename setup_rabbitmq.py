@@ -56,15 +56,14 @@ def configure_rabbitmq():
     )
     channel = connection.channel()
 
-    # Exchange y cola para transacciones bancarias
-    channel.exchange_declare(exchange='bank_exchange', exchange_type='direct', durable=True)
-    channel.queue_declare(queue='transactions_queue', durable=True)
-    channel.queue_bind(exchange='bank_exchange', queue='transactions_queue', routing_key='transactions')
+    # Exchange único para el middleware
+    channel.exchange_declare(exchange='rabbit_exchange', exchange_type='direct', durable=True)
 
-    # Exchange y cola para verificación de identidad
-    channel.exchange_declare(exchange='verify_exchange', exchange_type='direct', durable=True)
-    channel.queue_declare(queue='verify_queue', durable=True)
-    channel.queue_bind(exchange='verify_exchange', queue='verify_queue', routing_key='verify')
+    channel.queue_declare(queue='bank_queue', durable=True)
+    channel.queue_declare(queue='reniec_queue', durable=True)
+
+    channel.queue_bind(exchange='rabbit_exchange', queue='bank_queue', routing_key='bank_operation')
+    channel.queue_bind(exchange='rabbit_exchange', queue='reniec_queue', routing_key='reniec_operation')
 
     connection.close()
     print("✔   RabbitMQ configurado correctamente.\n")

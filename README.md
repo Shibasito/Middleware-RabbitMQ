@@ -7,15 +7,11 @@ El script ```setup_rabbitmq.py``` despliega un contenedor usando la imagen de ``
 
 La configuración inicial del servidor de ```RabbitMQ``` incluye:
 
-#### Bank Exchange
-Es un **exchange directo** para las operaciones entre el cliente y el banco
+#### Rabbit Exchange
+Es un **exchange directo** para las operaciones entre el cliente, el banco y RENIEC 
 
-Este exchange se enlaza a la cola **transaction queue** usando la *routing key* **transactions**
-
-#### Verify Exchange
-Es un **exchange directo** para las operaciones de verificación de identidad con Reniec
-
-Este exchange se enlaza a la cola **verify queue** usando la *routing key* **verify**
+Este exchange se enlaza a la cola **bank_queue** usando la *routing key* **bank_operation**
+Este exchange se enlaza a la cola **reniec_queue** usando la *routing key* **reniec_operation**
 
 #### Configuración de credenciales de usuario
 ```
