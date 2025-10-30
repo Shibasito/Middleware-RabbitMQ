@@ -11,6 +11,7 @@ La configuración inicial del servidor de ```RabbitMQ``` incluye:
 Es un **exchange directo** para las operaciones entre el cliente, el banco y RENIEC 
 
 Este exchange se enlaza a la cola **bank_queue** usando la *routing key* **bank_operation**
+
 Este exchange se enlaza a la cola **reniec_queue** usando la *routing key* **reniec_operation**
 
 #### Configuración de credenciales de usuario
